@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BarcodeScanner.Mobile;
+using Microsoft.Extensions.Logging;
 
 namespace ScannerApp
 {
@@ -13,6 +14,11 @@ namespace ScannerApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })
+                .ConfigureMauiHandlers(handlers =>
+                {
+                    //Add the handler for the custom control
+                    handlers.AddBarcodeScannerHandler();
                 });
 
 #if DEBUG
